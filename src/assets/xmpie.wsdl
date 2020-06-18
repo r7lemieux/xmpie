@@ -1,0 +1,788 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="XMPieWSAPI" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="XMPieWSAPI">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Production Web Service.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="XMPieWSAPI">
+      <s:element name="SubmitJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPriority" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inTouchPointID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Property" type="tns:Property"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Property">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="m_Name" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="m_Value" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitJobResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitJobs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitJobsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitJobsResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitSplittedJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inSplittingType" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inSplittingInfo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPriority" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inTouchPointID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSplittedJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitSplittedJobResult" type="tns:ArrayOfString"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitJobWithParallelProcessing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inSplittingType" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inSplittingInfo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPriority" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inTouchPointID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitJobWithParallelProcessingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitJobWithParallelProcessingResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeployHTMLDocumentJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inTouchPointID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeployHTMLDocumentJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeployHTMLDocumentJobResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnDeployHTMLDocumentJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnDeployHTMLDocumentJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UnDeployHTMLDocumentJobResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergeCSVXFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inCSVXFilePaths" type="tns:ArrayOfString"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inOutputCSVXPath" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergeCSVXFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MergeCSVXFilesResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppendCSVXFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inMainCSVXFilePath" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inSecondaryCSVXFilePath" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppendCSVXFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AppendCSVXFileResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeployOnDemandJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeployOnDemandJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeployOnDemandJobResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UndeployOnDemandJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UndeployOnDemandJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UndeployOnDemandJobResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendOnDemandJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendOnDemandJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SuspendOnDemandJobResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResumeOnDemandJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResumeOnDemandJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResumeOnDemandJobResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeployOnDemandJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inJobTicket" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RedeployOnDemandJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RedeployOnDemandJobResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnDemandOutput">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inProps" type="tns:ArrayOfProperty"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnDemandOutputResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOnDemandOutputResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnDemandOutput">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inRequestID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnDemandOutputResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOnDemandOutputResult" type="tns:OnDemandOutputResult"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OnDemandOutputResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="m_Status" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="m_Message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="m_FileName" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="m_FileSize" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="m_FileToken" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteOnDemandOutput">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inUsername" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inPassword" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="inRequestID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOnDemandOutputResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteOnDemandOutputResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SubmitJobSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitJob"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitJobSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitJobsSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitJobs"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitJobsSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitJobsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitSplittedJobSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitSplittedJob"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitSplittedJobSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitSplittedJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitJobWithParallelProcessingSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitJobWithParallelProcessing"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitJobWithParallelProcessingSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitJobWithParallelProcessingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeployHTMLDocumentJobSoapIn">
+    <wsdl:part name="parameters" element="tns:DeployHTMLDocumentJob"/>
+  </wsdl:message>
+  <wsdl:message name="DeployHTMLDocumentJobSoapOut">
+    <wsdl:part name="parameters" element="tns:DeployHTMLDocumentJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UnDeployHTMLDocumentJobSoapIn">
+    <wsdl:part name="parameters" element="tns:UnDeployHTMLDocumentJob"/>
+  </wsdl:message>
+  <wsdl:message name="UnDeployHTMLDocumentJobSoapOut">
+    <wsdl:part name="parameters" element="tns:UnDeployHTMLDocumentJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MergeCSVXFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:MergeCSVXFiles"/>
+  </wsdl:message>
+  <wsdl:message name="MergeCSVXFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:MergeCSVXFilesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AppendCSVXFileSoapIn">
+    <wsdl:part name="parameters" element="tns:AppendCSVXFile"/>
+  </wsdl:message>
+  <wsdl:message name="AppendCSVXFileSoapOut">
+    <wsdl:part name="parameters" element="tns:AppendCSVXFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeployOnDemandJobSoapIn">
+    <wsdl:part name="parameters" element="tns:DeployOnDemandJob"/>
+  </wsdl:message>
+  <wsdl:message name="DeployOnDemandJobSoapOut">
+    <wsdl:part name="parameters" element="tns:DeployOnDemandJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UndeployOnDemandJobSoapIn">
+    <wsdl:part name="parameters" element="tns:UndeployOnDemandJob"/>
+  </wsdl:message>
+  <wsdl:message name="UndeployOnDemandJobSoapOut">
+    <wsdl:part name="parameters" element="tns:UndeployOnDemandJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SuspendOnDemandJobSoapIn">
+    <wsdl:part name="parameters" element="tns:SuspendOnDemandJob"/>
+  </wsdl:message>
+  <wsdl:message name="SuspendOnDemandJobSoapOut">
+    <wsdl:part name="parameters" element="tns:SuspendOnDemandJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ResumeOnDemandJobSoapIn">
+    <wsdl:part name="parameters" element="tns:ResumeOnDemandJob"/>
+  </wsdl:message>
+  <wsdl:message name="ResumeOnDemandJobSoapOut">
+    <wsdl:part name="parameters" element="tns:ResumeOnDemandJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="RedeployOnDemandJobSoapIn">
+    <wsdl:part name="parameters" element="tns:RedeployOnDemandJob"/>
+  </wsdl:message>
+  <wsdl:message name="RedeployOnDemandJobSoapOut">
+    <wsdl:part name="parameters" element="tns:RedeployOnDemandJobResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CreateOnDemandOutputSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOnDemandOutput"/>
+  </wsdl:message>
+  <wsdl:message name="CreateOnDemandOutputSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOnDemandOutputResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetOnDemandOutputSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnDemandOutput"/>
+  </wsdl:message>
+  <wsdl:message name="GetOnDemandOutputSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnDemandOutputResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteOnDemandOutputSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOnDemandOutput"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteOnDemandOutputSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOnDemandOutputResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Production_SSPSoap">
+    <wsdl:operation name="SubmitJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit Job.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitJobSoapIn"/>
+      <wsdl:output message="tns:SubmitJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit Jobs.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitJobsSoapIn"/>
+      <wsdl:output message="tns:SubmitJobsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSplittedJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit splitted Job.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitSplittedJobSoapIn"/>
+      <wsdl:output message="tns:SubmitSplittedJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobWithParallelProcessing">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit parallel processing job.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitJobWithParallelProcessingSoapIn"/>
+      <wsdl:output message="tns:SubmitJobWithParallelProcessingSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeployHTMLDocumentJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deploy an HTML document Job.</wsdl:documentation>
+      <wsdl:input message="tns:DeployHTMLDocumentJobSoapIn"/>
+      <wsdl:output message="tns:DeployHTMLDocumentJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UnDeployHTMLDocumentJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">UnDeploy Job.</wsdl:documentation>
+      <wsdl:input message="tns:UnDeployHTMLDocumentJobSoapIn"/>
+      <wsdl:output message="tns:UnDeployHTMLDocumentJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="MergeCSVXFiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Merge CSVX file to the one CSVX file.</wsdl:documentation>
+      <wsdl:input message="tns:MergeCSVXFilesSoapIn"/>
+      <wsdl:output message="tns:MergeCSVXFilesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AppendCSVXFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Append the second CVSX file to the first.</wsdl:documentation>
+      <wsdl:input message="tns:AppendCSVXFileSoapIn"/>
+      <wsdl:output message="tns:AppendCSVXFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeployOnDemandJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deploy on demand job.</wsdl:documentation>
+      <wsdl:input message="tns:DeployOnDemandJobSoapIn"/>
+      <wsdl:output message="tns:DeployOnDemandJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UndeployOnDemandJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Undeploy on demand job.</wsdl:documentation>
+      <wsdl:input message="tns:UndeployOnDemandJobSoapIn"/>
+      <wsdl:output message="tns:UndeployOnDemandJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendOnDemandJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Suspend on demand job.</wsdl:documentation>
+      <wsdl:input message="tns:SuspendOnDemandJobSoapIn"/>
+      <wsdl:output message="tns:SuspendOnDemandJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeOnDemandJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Resume on demand job.</wsdl:documentation>
+      <wsdl:input message="tns:ResumeOnDemandJobSoapIn"/>
+      <wsdl:output message="tns:ResumeOnDemandJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="RedeployOnDemandJob">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Redeploy on demand job.</wsdl:documentation>
+      <wsdl:input message="tns:RedeployOnDemandJobSoapIn"/>
+      <wsdl:output message="tns:RedeployOnDemandJobSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnDemandOutput">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create on demand PDF document.</wsdl:documentation>
+      <wsdl:input message="tns:CreateOnDemandOutputSoapIn"/>
+      <wsdl:output message="tns:CreateOnDemandOutputSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnDemandOutput">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get on demand PDF document.</wsdl:documentation>
+      <wsdl:input message="tns:GetOnDemandOutputSoapIn"/>
+      <wsdl:output message="tns:GetOnDemandOutputSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOnDemandOutput">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete on demand PDF document.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteOnDemandOutputSoapIn"/>
+      <wsdl:output message="tns:DeleteOnDemandOutputSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Production_SSPSoap" type="tns:Production_SSPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SubmitJob">
+      <soap:operation soapAction="XMPieWSAPI/SubmitJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobs">
+      <soap:operation soapAction="XMPieWSAPI/SubmitJobs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSplittedJob">
+      <soap:operation soapAction="XMPieWSAPI/SubmitSplittedJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobWithParallelProcessing">
+      <soap:operation soapAction="XMPieWSAPI/SubmitJobWithParallelProcessing" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeployHTMLDocumentJob">
+      <soap:operation soapAction="XMPieWSAPI/DeployHTMLDocumentJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnDeployHTMLDocumentJob">
+      <soap:operation soapAction="XMPieWSAPI/UnDeployHTMLDocumentJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeCSVXFiles">
+      <soap:operation soapAction="XMPieWSAPI/MergeCSVXFiles" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppendCSVXFile">
+      <soap:operation soapAction="XMPieWSAPI/AppendCSVXFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeployOnDemandJob">
+      <soap:operation soapAction="XMPieWSAPI/DeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndeployOnDemandJob">
+      <soap:operation soapAction="XMPieWSAPI/UndeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendOnDemandJob">
+      <soap:operation soapAction="XMPieWSAPI/SuspendOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeOnDemandJob">
+      <soap:operation soapAction="XMPieWSAPI/ResumeOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeployOnDemandJob">
+      <soap:operation soapAction="XMPieWSAPI/RedeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnDemandOutput">
+      <soap:operation soapAction="XMPieWSAPI/CreateOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnDemandOutput">
+      <soap:operation soapAction="XMPieWSAPI/GetOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOnDemandOutput">
+      <soap:operation soapAction="XMPieWSAPI/DeleteOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Production_SSPSoap12" type="tns:Production_SSPSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SubmitJob">
+      <soap12:operation soapAction="XMPieWSAPI/SubmitJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobs">
+      <soap12:operation soapAction="XMPieWSAPI/SubmitJobs" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSplittedJob">
+      <soap12:operation soapAction="XMPieWSAPI/SubmitSplittedJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitJobWithParallelProcessing">
+      <soap12:operation soapAction="XMPieWSAPI/SubmitJobWithParallelProcessing" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeployHTMLDocumentJob">
+      <soap12:operation soapAction="XMPieWSAPI/DeployHTMLDocumentJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnDeployHTMLDocumentJob">
+      <soap12:operation soapAction="XMPieWSAPI/UnDeployHTMLDocumentJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeCSVXFiles">
+      <soap12:operation soapAction="XMPieWSAPI/MergeCSVXFiles" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppendCSVXFile">
+      <soap12:operation soapAction="XMPieWSAPI/AppendCSVXFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeployOnDemandJob">
+      <soap12:operation soapAction="XMPieWSAPI/DeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndeployOnDemandJob">
+      <soap12:operation soapAction="XMPieWSAPI/UndeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendOnDemandJob">
+      <soap12:operation soapAction="XMPieWSAPI/SuspendOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeOnDemandJob">
+      <soap12:operation soapAction="XMPieWSAPI/ResumeOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RedeployOnDemandJob">
+      <soap12:operation soapAction="XMPieWSAPI/RedeployOnDemandJob" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnDemandOutput">
+      <soap12:operation soapAction="XMPieWSAPI/CreateOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnDemandOutput">
+      <soap12:operation soapAction="XMPieWSAPI/GetOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOnDemandOutput">
+      <soap12:operation soapAction="XMPieWSAPI/DeleteOnDemandOutput" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Production_SSP">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Production Web Service.</wsdl:documentation>
+    <wsdl:port name="Production_SSPSoap" binding="tns:Production_SSPSoap">
+      <soap:address location="http://detroit.xmpie.net/xmpiewsapi/production_ssp.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="Production_SSPSoap12" binding="tns:Production_SSPSoap12">
+      <soap12:address location="http://detroit.xmpie.net/xmpiewsapi/production_ssp.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

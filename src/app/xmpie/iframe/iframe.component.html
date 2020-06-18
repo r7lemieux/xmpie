@@ -1,0 +1,13 @@
+<h1>XMPie Iframe</h1>
+
+<form [formGroup]="projectForm" class="entryField">
+  <div>
+    <label for="projectName">Project Name</label>
+    <input type="text"
+           id="projectName"
+           [maxLength]="40"
+           placeholder="Project Name"
+           formControlName="projectName"/>
+  </div>
+</form>
+
